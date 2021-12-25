@@ -2,6 +2,7 @@ const path = require('path');
 const { getLoader } = require('../scripts/utils');
 
 const { loader } = getLoader();
+const isProd = process.env.NODE_ENV === 'production';
 
 /**
  * @type {(name: string) => import('webpack').Configuration}
@@ -14,7 +15,7 @@ module.exports = function (name) {
      * mode 为 development 时生成带代码使用 eval 执行
      * 个人猜测这样做的好处是使得代码错误在运行时抛出，因为 eval(字符串) 能避开语法检测
      */
-    mode: process.env.NODE_ENV,
+    mode: isProd ? 'production' : 'none',
     entry: {
       index: path.join(__dirname, `../src/${name}/index.ts`),
     },
@@ -47,7 +48,7 @@ module.exports = function (name) {
       extensions: ['.ts', '.tsx', '.js', '.json'],
     },
     optimization: {
-      minimize: false,
+      minimize: isProd,
     },
     node: {
       __dirname: false,
