@@ -43,5 +43,9 @@ module.exports = function (name) {
     optimization: {
       minimize: false,
     },
+    node: {
+      __dirname: false,
+      __filename: false,
+    },
   };
 };
