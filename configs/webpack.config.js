@@ -54,5 +54,9 @@ module.exports = function (name) {
       __dirname: false,
       __filename: false,
     },
+    externals: {
+      // https://github.com/mapbox/node-sqlite3/issues/698
+      sqlite3: 'commonjs sqlite3',
+    },
   };
 };

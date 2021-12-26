@@ -2,6 +2,7 @@ import os from 'os'
 import { join } from 'path'
 import { app, BrowserWindow } from 'electron'
 import './samples/electron-store'
+import './samples/sqlite3'
 
 const isWin7 = os.release().startsWith('6.1')
 if (isWin7) app.disableHardwareAcceleration()
@@ -30,7 +31,7 @@ async function mainWin() {
     const url = `http://${pkg.env.HOST || '127.0.0.1'}:${pkg.env.PORT}`
 
     win.loadURL(url)
-    win.maximize()
+    // win.maximize()
     win.webContents.openDevTools()
   }
 
