@@ -1,10 +1,10 @@
+import electron, { ipcRenderer } from 'electron'
 import path from 'path'
 import fs from 'fs'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-// import './samples/electron-store'
-import electron, { ipcRenderer } from 'electron'
+import './samples/electron-store'
 import './index.css'
 
 ReactDOM.render(

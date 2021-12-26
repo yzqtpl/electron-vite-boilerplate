@@ -14,7 +14,11 @@ export default defineConfig({
     styleImport({
       resolves: [AntdResolve()],
     }),
-    electron(),
+    electron({
+      resolve: {
+        'electron-store': `const Store=require('electron-store');\nexport default Store;`,
+      }
+    }),
   ],
   base: './',
   build: {
@@ -41,6 +45,9 @@ export default defineConfig({
     port: pkg.env.PORT,
   },
   optimizeDeps: {
-    exclude: ['electron'],
+    exclude: [
+      'electron',
+      'electron-store',
+    ],
   },
 });
