@@ -17,8 +17,8 @@
   # enter the project directory
   cd electron-vite-boilerplate
 
-  # install dependency(recommend use pnpm)
-  pnpm install
+  # install dependency
+  npm install
 
   # develop
   npm run dev
