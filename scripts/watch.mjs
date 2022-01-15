@@ -20,6 +20,7 @@ function watchMain() {
   };
 
   esbuild.build(mainOptions(startElectron));
+  // TODO: check 'dist/main/index.js' exists.
   startElectron();
 }
 
